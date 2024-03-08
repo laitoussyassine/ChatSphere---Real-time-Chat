@@ -23,7 +23,7 @@ const Join = () => {
     <> 
       {
         notShowChat ? (
-          <div>
+          <div className=''>
             <label htmlFor="">Enter Your Name</label>
             <input type="text" placeholder='John ...' onChange={handleUserName} />
             <button onClick={joinRoom}>Join A Room</button>
