@@ -15,7 +15,7 @@ const Join = () => {
 
     const joinRoom = () => {
       if (username !== "") {
-        socket.emit("join_room", room)
+        socket.emit("join_room", {username,room})
         setNotShowChat(false)
       }
     }
@@ -25,7 +25,7 @@ const Join = () => {
         notShowChat ? (
           <div>
             <label htmlFor="">Enter Your Name</label>
-            <input type="text" placeholder='John ...' onChange={handleUserName} />
+            <input type="text" placeholder='John ...' value={username} onChange={handleUserName} />
             <button onClick={joinRoom}>Join A Room</button>
           </div>
 

@@ -37,13 +37,13 @@ io.on("connection", (socket) => {
     console.log("connected & socket ID is", socket.id);
 
     socket.on("join_room", (data) => {
-        socket.join(data.room);
+        socket.join(data);
         console.log(`${data.username} with id: ${socket.id} joined ${data.room} room`);
     });
     
 
     socket.on('send_message', (data) => {
-        socket.to(data.room).emit("receive_message", data);
+        socket.to(data).emit("receive_message", data);
         const message = new ChatMessage({
             username: data.username,
             message: data.message

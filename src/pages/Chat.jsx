@@ -17,19 +17,21 @@ const Chat = ({ socket,username,room}) => {
                 username,
                 room,
                 message: currentMessage,
-                time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes() 
             }
             await socket.emit("send_message", messageData)
-            setMessageList(list=> [...list, messageData])
-            currentMessage("")
+            setMessageList((list)=> [...list, messageData])
+            console.log(messageData.message);
+            setCurrentMessage("")
         };
     }
 
     useEffect(() => {
         socket.on("receive_message", (data) => {
-            setMessageList(list=> [...list, data])
+            setMessageList((list)=> [...list, data])
             console.log(data);
         })
+
+      
     }, [socket])
 
   return (
