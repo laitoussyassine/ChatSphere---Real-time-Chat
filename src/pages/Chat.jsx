@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import chatRobot from '../images/robot.png'
+import { MdOutlineSend } from "react-icons/md";
+
 
 const Chat = ({ socket,username,room}) => {
 
@@ -41,18 +43,17 @@ const Chat = ({ socket,username,room}) => {
             <div className=' shadow-slate-600 shadow-md py-8 px-12 rounded-2xl'>
                 <p className='text-center font-semibold'>Live Chat</p>
                 <img src={chatRobot} className="w-24 mx-auto mb-10" alt="" />
-                <div>
+                <div className=''>
                     <div className='chat-body'>
                         {messageList.map((messageContent, index) => (
-                            <p key={index}>{messageContent.message}</p>
+                            <p className='bg-mainColor w-fit text-white font-medium rounded-md px-3 py-1 mb-2' key={index}>{messageContent.message}</p>
                         ))}
                     </div>
-                    <div className='chat-footer'>
-                        <input type="text" className='bg-slate-200' onChange={handleMessage}/>
-                        <button className='bg-slate-500' onClick={sendMessage}>send</button>
+                    <div className='border-2 border-textColor'>
+                        <input type="text" className='px-6 py-1 outline-none' onChange={handleMessage}/>
+                        <button className=' px-6 py-1' onClick={sendMessage}><MdOutlineSend className='text-mainColor text-xl mt-2' /></button>
                     </div>
                 </div>
-
             </div>
         </div>
     </>
