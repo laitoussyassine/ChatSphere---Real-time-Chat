@@ -10,35 +10,36 @@ const Header = () => {
     };
     return (
         <>
-            <header className="bg-gray-900 sm:flex sm:justify-between sm:items-center px-10 sm:py-5">
+            <header className=" sm:flex sm:justify-around sm:items-center sm:py-5">
                 <div className="flex items-center justify-between px-4 py-3 sm:p-0">
                     <div>
-                        <h3 className='text-mainColor text-xl font-bold'><span className='text-white'>Tech</span> Innovate</h3>
+                        <Link to={'/'} className='text-secondColor text-xl font-bold'><span className='text-mainColor'>ChatSphe</span>R</Link>
                     </div>
                     <div className="sm:hidden">
                         <button
                             onClick={toggleMenu}
                             type="button"
-                            className="block text-white hover:text-mainColor focus:text-mainColor focus:outline-none"
+                            className="block text-textColor hover:text-mainColor focus:text-mainColor focus:outline-none"
                         >
                             <GiHamburgerMenu />
                         </button>
                     </div>
                 </div>
-                <nav className={`${isOpen ? 'block' : 'hidden'} px-2 pt-2 pb-4 sm:flex sm:p-0`}>
+                <nav className={`${isOpen ? 'block' : 'hidden'} px-2 pt-2 pb-4 sm:flex sm:p-0 text-textColor`}>
                     
-                        <Link className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 hover:text-mainColor">
-                            Home
+                        <Link to={'/'} className="block px-2 py-1  font-semibold rounded hover:bg-gray-800 hover:text-mainColor">
+                            App
                         </Link>
-                        <Link className="block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800 hover:text-mainColor">
+                        <Link className="block px-2 py-1 font-semibold rounded hover:bg-gray-800 hover:text-mainColor">
                             About
+                        </Link>
+                        <Link className="block px-2 py-1 font-semibold rounded hover:bg-gray-800 hover:text-mainColor">
+                            Contact
                         </Link>
                     
                 </nav>
             </header>
         </>
-
-
     )
 }
 
