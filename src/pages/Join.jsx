@@ -45,11 +45,11 @@ const Join = () => {
         
 
           : (
-
-            <Chat socket={socket} username={username} room={room}/>
-          )
-
-      }
+              ""
+            )
+            
+          }
+          <Chat socket={socket} username={username} room={room}/>
     </>
   )
 }
