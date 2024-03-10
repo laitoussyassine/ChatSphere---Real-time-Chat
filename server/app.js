@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
     
 
     socket.on('send_message', (data) => {
-        socket.to(data).emit("receive_message", data);
+        socket.to(data.room).emit("receive_message", data);
         const message = new ChatMessage({
             username: data.username,
             message: data.message
