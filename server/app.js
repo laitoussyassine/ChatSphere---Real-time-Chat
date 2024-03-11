@@ -6,19 +6,19 @@ import { Server } from "socket.io";
 import Database from "./config/db.config.js";
 import ChatMessage from "./models/messageModel.js";
 const app = express();
-app.use(cors());
-app.use(express.json());
+// app.use(express.json());
 
 
-
+app.use(cors({ origin: ["http://localhost:5173"],}));
 const server = app.listen(4000, () => {
     console.log("server running 4000");
 });
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
-        method: ["GET", "POST"]
+        origin: ["http://localhost:5173"],
+        method: ["GET", "POST"],
+        credentials: false
     }
 })
 
@@ -43,12 +43,12 @@ io.on("connection", (socket) => {
     
 
     socket.on('send_message', (data) => {
-        socket.to(data.room).emit("receive_message", data);
         const message = new ChatMessage({
             username: data.username,
             message: data.message
         });
         message.save();
+        io.emit("receive_message", data);
     });
     
 
