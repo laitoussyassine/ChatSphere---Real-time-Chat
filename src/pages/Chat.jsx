@@ -7,7 +7,6 @@ import { useWebSocket } from '../hooks/socketProvider';
 
 
 const Chat = ({ pseudoname, room }) => {
-    console.log(pseudoname,room);
 
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageList, setMessageList] = useState([]);
@@ -38,20 +37,19 @@ const Chat = ({ pseudoname, room }) => {
                 username: pseudoname,
                 room: room,
                 message: currentMessage,
+                createdAt:new Date()
             }
             await socket.emit("send_message", messageData)
-            setMessageList((list) => [...list, messageData])
             setCurrentMessage("")
         };
     }
 
     useEffect(() => {
+        getMessages()
         socket.on("receive_message", (data) => {
             setMessageList((list) => [...list, data])
-            getMessages()
         })
-
-    }, [socket])
+    }, [])
 
     return (
         <>

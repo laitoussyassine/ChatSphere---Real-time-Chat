@@ -45,7 +45,7 @@ const Join = () => {
         
 
           : (
-              <Chat socket={socket} pseudoname={pseudoname} room={room}/>
+              <Chat  pseudoname={pseudoname} room={room}/>
             )
             
           }
