@@ -38,7 +38,7 @@ io.on("connection", (socket) => {
 
     socket.on("join_room", (data) => {
         socket.join(data);
-        console.log(`${data.username} with id: ${socket.id} joined ${data.room} room`);
+        console.log(`${data.pseudoname} with id: ${socket.id} joined ${data.room} room`);
     });
     
 

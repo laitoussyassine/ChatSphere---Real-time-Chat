@@ -7,6 +7,7 @@ import { useWebSocket } from '../hooks/socketProvider';
 
 
 const Chat = ({ pseudoname, room }) => {
+    console.log(pseudoname,room);
 
     const [currentMessage, setCurrentMessage] = useState("");
     const [messageList, setMessageList] = useState([]);
