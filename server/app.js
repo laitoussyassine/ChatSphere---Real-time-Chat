@@ -9,14 +9,14 @@ const app = express();
 // app.use(express.json());
 
 
-app.use(cors({ origin: ["http://localhost:5173"],}));
+app.use(cors());
 const server = app.listen(4000, () => {
     console.log("server running 4000");
 });
 
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:5173"],
+        origin: "*",
         method: ["GET", "POST"],
         credentials: false
     }

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import io from 'socket.io-client'
 import { useWebSocket } from '../hooks/socketProvider'
 import Chat from './Chat'
 
